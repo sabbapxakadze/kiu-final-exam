@@ -1,0 +1,20 @@
+/* src/components/Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-center {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
