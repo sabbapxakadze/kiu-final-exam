@@ -1,39 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import "../css/ProductPage.css";
 
 const dummyProducts = [
   {
     id: 1,
-    title: "Apollo Running Short",
-    price: 50,
-    inStock: true,
-    image: "/images/product1.jpg",
+    title: "GLOCK 48 FS silver slide  cal. 9X19 (AUSTRIA)",
+    price: 505,
+    image:
+      "https://www.winchester.ge/uploads/product/vSu435du5z9eV3bSFZGnUsVqDvML2L8Kie3qLJhG.jpg",
+    category: "Gun",
   },
   {
     id: 2,
-    title: "Apollo Running Short",
+    title: "GLOCK 17 GEN5   MOS  cal. 9X19",
     price: 50,
-    inStock: true,
-    image: "/images/product2.jpg",
+    image:
+      "https://www.winchester.ge/uploads/product/PrMsLmxYpSfozGLaxBLn8zjixnuZlOBz38v4MAmC.jpg",
+    category: "Gun",
   },
   {
     id: 3,
-    title: "Apollo Running Short",
+    title: "Magnum Miyu Chiisai 01SC061",
     price: 50,
-    inStock: false,
-    image: "/images/product3.jpg",
+    image:
+      "https://www.winchester.ge/uploads/product/r9nDOFPcn3eqonaj9See5dOtX87Yx0Kt88CuM9Ai.jpg",
+    category: "Knife",
   },
-  // add more...
 ];
 
-const ProductPage = () => {
+const ProductPage = ({ category }) => {
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (product) => {
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prev, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+  const filteredProducts = category
+    ? dummyProducts.filter(
+        (product) => product.category.toLowerCase() === category.toLowerCase()
+      )
+    : dummyProducts;
+
   return (
     <div className="product-page">
-      <h2>Category name</h2>
+      <h2>{category ? `Category: ${category}` : "All Products"}</h2>
       <div className="product-grid">
-        {dummyProducts.map((product) => (
-          <ProductCard product={product} key={product.id} />
+        {filteredProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onAddToCart={addToCart}
+          />
         ))}
       </div>
     </div>
