@@ -3,7 +3,8 @@ import { useCart } from "../context/CartContext";
 import "../css/CartPage.css";
 
 const CartPage = () => {
-  const { cartItems, addToCart, decreaseQty } = useCart();
+  const { cartItems, addToCart, decreaseQty, currency, exchangeRates } =
+    useCart();
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -18,7 +19,10 @@ const CartPage = () => {
         <div key={item.id} className="cart-row">
           <div className="info">
             <h1>{item.title}</h1>
-            <p>${item.price.toFixed(2)}</p>
+            <p>
+              {currency}
+              {(item.price * exchangeRates[currency]).toFixed(2)}
+            </p>
             <div className="qty-controls">
               <button onClick={() => addToCart(item)}>+</button>
               <span>{item.quantity}</span>
@@ -30,7 +34,10 @@ const CartPage = () => {
       ))}
 
       <div className="summary">
-        <h3>Total: ${total.toFixed(2)}</h3>
+        <h3>
+          Total: {currency}
+          {(total * exchangeRates[currency]).toFixed(2)}
+        </h3>
         <button className="checkout">CHECK OUT</button>
       </div>
     </div>

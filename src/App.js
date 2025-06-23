@@ -17,7 +17,6 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
           </Routes>
         </Router>
-        {/* Add your routes and other components here later */}
       </div>
     </CartProvider>
   );

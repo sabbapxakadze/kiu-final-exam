@@ -12,6 +12,7 @@ const Navbar = () => {
     cartItemCount,
     addToCart,
     decreaseQty,
+    exchangeRates,
   } = useCart();
 
   const navigate = useNavigate();
@@ -86,7 +87,10 @@ const Navbar = () => {
                 <div key={item.id} className="cart-item">
                   <div className="item-details">
                     <p className="item-name">{item.title}</p>
-                    <p className="item-price">${item.price.toFixed(2)}</p>
+                    <p className="item-price">
+                      {currency}
+                      {(item.price * exchangeRates[currency]).toFixed(2)}
+                    </p>
                     <div className="item-qty">
                       <button
                         className="qty-btn"
@@ -115,7 +119,10 @@ const Navbar = () => {
             {/* Total and Buttons */}
             <div className="cart-total">
               <span>Total</span>
-              <span>${total.toFixed(2)}</span>
+              <span>
+                {currency}
+                {(total * exchangeRates[currency]).toFixed(2)}
+              </span>
             </div>
 
             <div className="cart-buttons">
