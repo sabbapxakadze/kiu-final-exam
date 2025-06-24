@@ -10,6 +10,9 @@
   z-index: 100;
   font-family: "Arial", sans-serif;
 }
+* {
+  font-family: "Noto-Sans";
+}
 
 /* Left, center, and right sections */
 .nav-left,
@@ -98,7 +101,6 @@ select {
 
 /* === CART PANEL ELEMENTS === */
 .cart-title {
-  font-weight: bold;
   font-size: 16px;
   margin-bottom: 1.2rem;
 }
@@ -118,14 +120,15 @@ select {
 }
 
 .item-name {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: bold;
   line-height: 1.4;
+  color: rgb(79, 79, 79);
 }
 
 .item-price {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .item-size span {

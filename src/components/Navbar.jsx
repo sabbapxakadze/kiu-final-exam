@@ -53,9 +53,9 @@ const Navbar = () => {
       {/* Right - Currency & Cart */}
       <div className="nav-right">
         <select value={currency} onChange={handleCurrencyChange}>
-          <option value="$">$</option>
-          <option value="€">€</option>
-          <option value="₾">₾</option>
+          <option value="$">$ USD</option>
+          <option value="€">€ EUR</option>
+          <option value="₾">₾ GEL</option>
         </select>
 
         <div
@@ -135,7 +135,12 @@ const Navbar = () => {
               >
                 VIEW BAG
               </button>
-              <button className="checkout">CHECK OUT</button>
+              <button
+                className="checkout"
+                onClick={() => navigate("/shipping")}
+              >
+                CHECK OUT
+              </button>
             </div>
           </div>
         </div>

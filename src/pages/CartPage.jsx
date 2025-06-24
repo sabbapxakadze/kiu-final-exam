@@ -1,10 +1,13 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../css/CartPage.css";
 
 const CartPage = () => {
   const { cartItems, addToCart, decreaseQty, currency, exchangeRates } =
     useCart();
+
+  const navigate = useNavigate();
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -38,7 +41,9 @@ const CartPage = () => {
           Total: {currency}
           {(total * exchangeRates[currency]).toFixed(2)}
         </h3>
-        <button className="checkout">CHECK OUT</button>
+        <button className="checkout" onClick={() => navigate("/shipping")}>
+          CHECK OUT
+        </button>
       </div>
     </div>
   );

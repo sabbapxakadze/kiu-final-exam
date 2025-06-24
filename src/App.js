@@ -1,23 +1,53 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProductPage from "./pages/ProductPages";
 import CartPage from "./pages/CartPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import ShippingInfoPage from "./pages/ShippingInfoPage";
+import ShippingMethodPage from "./pages/ShippingMethodPage";
+import PaymentPage from "./pages/PaymentPage";
+import SuccessPage from "./pages/SuccessPage";
 import { CartProvider } from "./context/CartContext";
+
+const AppContent = () => {
+  const location = useLocation();
+
+  const hideNavbarRoutes = [
+    "/shipping",
+    "/shipping-method",
+    "/payment",
+    "/success",
+  ];
+
+  return (
+    <>
+      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+      <Routes>
+        <Route path="/knife" element={<ProductPage category="Knife" />} />
+        <Route path="/gun" element={<ProductPage category="Gun" />} />
+        <Route path="/" element={<ProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/shipping" element={<ShippingInfoPage />} />
+        <Route path="/shipping-method" element={<ShippingMethodPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/success" element={<SuccessPage />} />
+      </Routes>
+    </>
+  );
+};
 
 function App() {
   return (
     <CartProvider>
-      <div>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/knife" element={<ProductPage category="Knife" />} />
-            <Route path="/gun" element={<ProductPage category="Gun" />} />
-            <Route path="/" element={<ProductPage />} />
-            <Route path="/cart" element={<CartPage />} />
-          </Routes>
-        </Router>
-      </div>
+      <Router>
+        <AppContent />
+      </Router>
     </CartProvider>
   );
 }
