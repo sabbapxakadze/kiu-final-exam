@@ -35,6 +35,13 @@ const dummyProducts = [
   },
   {
     id: 5,
+    title: "Ultimate Power",
+    price: 99999,
+    image: "https://topsport.ge/wp-content/uploads/GV9736-2.webp",
+    category: "Knife",
+  },
+  {
+    id: 6,
     title: "Magnum Combat Dagger 02GL033",
     price: 899,
     image:
@@ -42,7 +49,7 @@ const dummyProducts = [
     category: "Knife",
   },
   {
-    id: 6,
+    id: 7,
     title: "Magnum Bon Appetite 01LL209",
     price: 100000,
     image:
@@ -50,7 +57,7 @@ const dummyProducts = [
     category: "Knife",
   },
   {
-    id: 7,
+    id: 8,
     title: "DIAMONDBACK DB10 .308 16''",
     price: 1500,
     image:
@@ -58,7 +65,7 @@ const dummyProducts = [
     category: "Gun",
   },
   {
-    id: 8,
+    id: 9,
     title: "Slayer",
     price: 9999999,
     image:
