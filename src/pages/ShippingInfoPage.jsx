@@ -85,6 +85,7 @@ const ShippingPage = () => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+  //ძაან ზარმაცები ვართ form-ის ლამაზად გაწერისთვის, არ ვამაყობთ ამ ფორმით მარა იყოს :დდ
 
   return (
     <div className="shipping-page">

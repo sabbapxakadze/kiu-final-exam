@@ -51,6 +51,10 @@ const ShippingMethodPage = () => {
     return (deliveryFeeUSD * exchangeRates[currency]).toFixed(2);
   })();
 
+  //კიდე აქ shipping page და shippingg container როა css-ს იმიტო ვიყენებთ რო ძირითადად მეორდებოდა
+  //ბოლო გვერდებზე რაღაცები და მსგავს css-ს
+  //ვიყენებთ წინა გვერდის კლასიდან
+
   return (
     <div className="shipping-page">
       <div className="shipping-container">

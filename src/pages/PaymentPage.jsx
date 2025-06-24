@@ -34,7 +34,7 @@ const PaymentPage = () => {
   };
 
   const formattedAddress = `${address}, ${city}, ${postalCode}, ${country}`;
-
+  //აქაც ვალიდაცია კრედიტ ქარდის დაგვეზარა. დდ
   return (
     <div className="shipping-page">
       <div className="shipping-container">

@@ -16,6 +16,11 @@ const OrderSummary = ({ shippingCost = 0, shippingMethod = "standard" }) => {
   const shippingCostInCurrency = shippingCost * rate;
   const totalInCurrency = subtotalInCurrency + shippingCostInCurrency;
 
+  // მოკლედ, ეს კომპონენტი არის აი უკვე payment-ის ფეიჯებზე როცა გადავდივართ
+  // მარჯვენა მხარე ყველგან მეორდება ზუსტად Order Summary არის და code duplication რო აგვერიდებინა ამას ვიყენებთ.
+  // Breadcrumb-ისთვისაც (აი ეგ არის Shipping > Details > Payment ასე როა ზემოთ ყიდვის დროს)
+  // შეგვეძლო გაგვეკეთებინა მარა ძაან პატარა კოდი იყო მაგისთვის და აღარ შევქმენით.
+
   return (
     <div className="order-summary">
       {cartItems.map((item) => (
