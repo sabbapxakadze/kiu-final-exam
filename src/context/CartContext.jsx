@@ -8,6 +8,7 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [currency, setCurrency] = useState("$");
 
+  //ასეთი ლოგიკით ვწერთ და თუ currency-ს შევცვლით შემდეგ გადავაკონვერტირებთ base price მაინც დოლარში გვექნება.
   const exchangeRates = {
     $: 1,
     "€": 0.92,

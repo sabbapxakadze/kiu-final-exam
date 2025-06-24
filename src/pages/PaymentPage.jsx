@@ -28,7 +28,6 @@ const PaymentPage = () => {
   const handleSubmit = () => {
     console.log("Payment submitted", paymentInfo);
 
-    // Pass shipping info & cost to success page here
     navigate("/success", {
       state: { shippingCost, shippingMethod, shippingInfo },
     });

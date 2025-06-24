@@ -71,8 +71,8 @@
 }
 
 .name-row input {
-  flex: 1; /* take equal available width */
-  min-width: 0; /* prevent overflow in flex container */
+  flex: 1;
+  min-width: 0;
 }
 
 .address-row {

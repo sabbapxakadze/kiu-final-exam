@@ -77,7 +77,6 @@ const ShippingPage = () => {
 
   const handleGoToShipping = () => {
     if (validateForm()) {
-      // If valid, navigate and pass form data to next page
       navigate("/shipping-method", { state: formData });
     }
   };
@@ -251,7 +250,7 @@ const ShippingPage = () => {
             </div>
           </div>
 
-          {/* Right Side - Order Summary */}
+          {/* Right Side */}
           <OrderSummary />
         </div>
       </div>

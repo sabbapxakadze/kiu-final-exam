@@ -43,7 +43,6 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Center Logo */}
       <div className="nav-center">
         <NavLink to="/">
           <img src="/a-logo.svg" alt="Logo" style={{ height: "40px" }} />

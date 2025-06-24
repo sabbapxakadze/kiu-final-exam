@@ -1,5 +1,3 @@
-// src/data/dummyProducts.js
-
 const dummyProducts = [
   {
     id: 1,
